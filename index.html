@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
-        <title>RSNGT</title>
         <head>
+            <title>RSNGT</title>
             <style>
                 .background{
                     background-color:rgb(185, 185, 185);
@@ -29,7 +29,7 @@
                 }
             </style>
         </head>
-        <body class="background">
+        <body id="body" class="background">
             <table>
                 <tr>
                     <td><h1 style="font-family:monospace" class="color1">Random</h1></td>
@@ -54,7 +54,7 @@
                         <td><input style="background-color: rgb(246, 191, 53);" class="question" type="button" value="?"></td> 
                         </tr>
                         <tr>
-                            <td><input type="radio" ><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Absent</b></td>
+                            <td><input type="radio" id="radio"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Absent</b></td>
                         </tr>
                         <tr>
                             <td><input type="checkbox"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Top</b></td>
@@ -85,6 +85,8 @@
             <script type="text/javascript">
                 var studentNames = [];
                 var studentDisplayed = [];
+                var randomNumber;
+                var x;
                 var menu = document.getElementById("myList");
                 menu.addEventListener("change", generateData);
                 function generateData(event) {
@@ -116,22 +118,27 @@
                  count = studentNames.length;
                  document.getElementById("button").value = count;
                 }
-                
+                var body = document.querySelector("body");
+                body.addEventListener("keydown",function(e){
+                    var isInput = ~["TEXTAREA", "INPUT"].indexOf(e.target.tagName);
+                    if(e.key === " " && !isInput){
+                    setNames();
+                }
+                });
                 function setNames() {
                     do {
-                        var randomNumber = Math.floor(Math.random() * studentNames.length);
+                         randomNumber = Math.floor(Math.random() * studentNames.length);
                     } while (studentDisplayed[randomNumber] == true);
-                        studentDisplayed[randomNumber] = true;
-                        document.getElementById("test").innerHTML = studentNames[randomNumber];
-                        count--;
-                        document.getElementById("button").value = count;
-                        console.log(studentDisplayed)
-                        console.log(studentNames[randomNumber])
-                        console.log(count)
-                    if (count == 0) {
-                        generateData(event);
-                        return;
-                    }
+                            studentDisplayed[randomNumber] = true;
+                            document.getElementById("test").innerHTML = studentNames[randomNumber];
+                            count--;
+                            document.getElementById("button").value = count;
+                            console.log(studentNames[randomNumber])
+                            console.log(count)
+                            if (count == 0) {
+                                generateData(event);
+                                return;
+                             }
                 }
             </script>
         </body>
