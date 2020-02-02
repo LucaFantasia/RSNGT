@@ -1,7 +1,6 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>RSNGT</title>
             <style>
                 .background{
                     background-color:rgb(185, 185, 185);
@@ -26,6 +25,10 @@
                 .button{
                     height:45px;
                     width:150px;
+                }
+                .image{
+                    width:34px;
+                    height:34px;
                 }
             </style>
         </head>
@@ -60,14 +63,19 @@
                             <td><input type="checkbox"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Top</b></td>
                         </tr>
                         <tr>
-                            <td><input style="background-color:rgb(96, 189, 172);" class="question" type="button" value=">>"></td>
+                            <td><input style="background-color:rgb(96, 189, 172);" class="question" type="button" id=">>" value=">>"></td>
                         </tr>
+                        <tr>
+                            <td>
+                                <input id="correct" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/tick.jpg">
+                                <input  id="wrong" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/x.png">
+                            </td>
                 </table>
                 </td>
                 <td>
                     <table>
                         <tr>
-                            <td style="color:rgb(185, 185, 185)">ee</td>
+                            <td style="color:rgb(185, 185, 185)">...</td>
                         </tr>
                     </table>
                 </td>
@@ -96,6 +104,57 @@
                         setArrays9();
                     }
                 }
+                var absentAll = [];
+                var skip = false;
+                var absentCount = 0;
+                var absent10 = [false,false,false,false,false,false,false,false,false,false,
+                    false,false,false,false,false,false,false,false,false,false,false];
+                var absent9 = [false,false,false,false,false,false,false,false,
+                 false,false,false,false,false,
+                 false,false,false,false,false,false,false,false,false,false,false];
+                document.getElementById("radio").addEventListener("click", absent) 
+                function absent(event) {
+                    if(menu.value == '10') {
+                        absentAll = [false,false,false,false,false,false,false,false,false,false,
+                    false,false,false,false,false,false,false,false,false,false,false];
+                        absentAll[randomNumber] = true;
+                        console.log(studentNames[randomNumber] + " is absent");
+                        document.getElementById("radio").checked = false;
+                        skip = true;
+                        absentCount++;
+                    } if(menu.value == '9') {
+                        absentAll = [false,false,false,false,false,false,false,false,
+                 false,false,false,false,false,
+                 false,false,false,false,false,false,false,false,false,false,false];
+                        absentAll[randomNumber] = true;
+                        console.log(studentNames[randomNumber] + " is absent");
+                        document.getElementById("radio").checked = false;
+                        skip = true;
+                        absentCount++;
+                    }
+                }
+                document.getElementById("correct").addEventListener("click", correct);
+                function correct(event) {
+                    var  green = "#00ff00";
+                    document.body.style.backgroundColor = green;
+                    setTimeout(right, 100);
+                    function right() {
+                        document.body.style.backgroundColor = "rgb(185, 185, 185)";
+                    }
+                    console.log(studentNames[randomNumber] + " is correct")
+                    document.getElementById("correct").checked = false;
+                }
+                document.getElementById("wrong").addEventListener("click", wrong);
+                function wrong(event) {
+                    var red = "#ff0000";
+                    document.body.style.backgroundColor = red;
+                    setTimeout(incorrect, 100);
+                    function incorrect() {
+                        document.body.style.backgroundColor = "rgb(185, 185, 185)";
+                    }
+                    console.log(studentNames[randomNumber] + " is wrong")
+                    document.getElementById("wrong").checked = false;
+                }
                 var count = 0 ;
                 document.getElementById("button").value = count;
                 generateData(event);
@@ -114,7 +173,7 @@
                     "Sofia C","Luisa","Kiana","Lena","Sofia M","Amelia","Sofia A","Catarina","Maria"];
                  studentDisplayed = [false,false,false,false,false,false,false,false,
                  false,false,false,false,false,
-                 false,false,false,false,false,false,false,false,false,false,false,];
+                 false,false,false,false,false,false,false,false,false,false,false];
                  count = studentNames.length;
                  document.getElementById("button").value = count;
                 }
@@ -128,15 +187,18 @@
                 function setNames() {
                     do {
                          randomNumber = Math.floor(Math.random() * studentNames.length);
-                    } while (studentDisplayed[randomNumber] == true);
+                    } while (studentDisplayed[randomNumber] == true || absentAll[randomNumber] == true);
                             studentDisplayed[randomNumber] = true;
                             document.getElementById("test").innerHTML = studentNames[randomNumber];
                             count--;
                             document.getElementById("button").value = count;
-                            console.log(studentNames[randomNumber])
-                            console.log(count)
                             if (count == 0) {
                                 generateData(event);
+                                if(skip == true) {
+                                    for(a = 0; a < absentCount; a++) {
+                                        count--;
+                                    }
+                                }
                                 return;
                              }
                 }
