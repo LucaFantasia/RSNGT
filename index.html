@@ -1,45 +1,144 @@
 <!DOCTYPE html>
     <html>
-        <title> RSNGT</title>
-        <body style="background-color:#f2f2f2">
+        <head>
+            <title>RSNGT</title>
             <style>
-                .button {
-                    border: 2px solid black;
+                .background{
+                    background-color:rgb(185, 185, 185);
+                }
+                .question{
+                    width:68px
+                }
+                .border{
+                    padding: 10px;
+                    border: 1px solid black;
+                    border-collapse: collapse
+                }
+                .color1{
+                    color: rgb(0, 96, 152)
+                }
+                .color2{
+                    color: rgb(246, 191, 53)
+                }
+                .color3{
+                    color: rgb(96, 189, 172)
+                }
+                .button{
+                    height:45px;
+                    width:150px;
                 }
             </style>
-            <p><button class="button" style="height:23px" id="button" onclick="setNames()"></button><img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/screenshot01.png" alt="test" align="top"></p>
-            <b><div style="font-size: 35px" id="test">Ready player one</div></b>
-            <script lang="Javascript">
+        </head>
+        <body id="body" class="background">
+            <table>
+                <tr>
+                    <td><h1 style="font-family:monospace" class="color1">Random</h1></td>
+                    <td> </td>
+                    <td><h1 style="font-family:monospace" class="color2">Student</h1></td>
+                    <td> </td>
+                    <td><h1 style="font-family:monospace" class="color3">Name</h1></td>
+                    <td> </td>
+                    <td><h1 style="font-family:monospace" class="color1">Generator</h1></td>
+                </tr>
+            </table>
+            <table>
+                <td>
+                    <table>
+                        <tr>
+                        <td><select style="background-color: rgb(96, 189, 172);" class="question" style="height:23px" id = "myList">
+                            <option value = "10"selected>10</option>
+                            <option value = "9">9</option>
+                            </select>
+                        </tr>
+                        <tr>
+                        <td><input style="background-color: rgb(246, 191, 53);" class="question" type="button" value="?"></td> 
+                        </tr>
+                        <tr>
+                            <td><input type="radio" id="radio"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Absent</b></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Top</b></td>
+                        </tr>
+                        <tr>
+                            <td><input style="background-color:rgb(96, 189, 172);" class="question" type="button" value=">>"></td>
+                        </tr>
+                </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="color:rgb(185, 185, 185)">ee</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td><h1 style="font-family:monospace" id="test">Ready Playerone</h1></td>
+                        </tr>
+                        <tr>
+                            <td><input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1" class="search" id="button" onclick="setNames()"></td>
+                        </tr>
+                    </table>
+                </td>
+            </table>
+            <script type="text/javascript">
                 var studentNames = [];
                 var studentDisplayed = [];
-                var count = 21;
-                document.getElementById("button").innerHTML = count;
-                setArrays();
-                function setArrays() {
+                var randomNumber;
+                var x;
+                var menu = document.getElementById("myList");
+                menu.addEventListener("change", generateData);
+                function generateData(event) {
+                    if (menu.value == '10') {
+                        setArrays10();
+                    } else if (menu.value == '9') {
+                        setArrays9();
+                    }
+                }
+                var count = 0 ;
+                document.getElementById("button").value = count;
+                generateData(event);
+                function setArrays10() {
                     studentNames = ["Adriana","Allan","Luca","Myro","JJ","JM","Dinis",
                     "Tilly","Laura","Carolina","Luna","Afonso","Cecilia",
-                    "Sofia F","Sofia G","Sebastion","Holly","Sandro","Tian","Miguel","Maria"];
+                    "Sofia F","Sofia G","Sebastian","Holly","Sandro","Tian","Miguel","Maria"];
                  studentDisplayed = [false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false];
                  count = studentNames.length;
-                document.getElementById("button").innerHTML = count;
+                 document.getElementById("button").value = count;
                 }
+                function setArrays9() {
+                    studentNames = ["Luca","Elliot","Adam","Sam","Pedro","Guilherme","Bernado","Sarah",
+                    "Mariana","Daniela","Anais","Beatriz","Emily","Tarushi","Lauren",
+                    "Sofia C","Luisa","Kiana","Lena","Sofia M","Amelia","Sofia A","Catarina","Maria"];
+                 studentDisplayed = [false,false,false,false,false,false,false,false,
+                 false,false,false,false,false,
+                 false,false,false,false,false,false,false,false,false,false,false,];
+                 count = studentNames.length;
+                 document.getElementById("button").value = count;
+                }
+                var body = document.querySelector("body");
+                body.addEventListener("keydown",function(e){
+                    var isInput = ~["TEXTAREA", "INPUT"].indexOf(e.target.tagName);
+                    if(e.key === " " && !isInput){
+                    setNames();
+                }
+                });
                 function setNames() {
                     do {
-                        var randomNumber = Math.floor(Math.random() * studentNames.length);
+                         randomNumber = Math.floor(Math.random() * studentNames.length);
                     } while (studentDisplayed[randomNumber] == true);
-                        studentDisplayed[randomNumber] = true;
-                        document.getElementById("test").innerHTML = studentNames[randomNumber];
-                        count--;
-                        document.getElementById("button").innerHTML = count;
-                        console.log(studentDisplayed)
-                        console.log(studentNames[randomNumber])
-                        console.log(count)
-                    if (count == 0) {
-                        setArrays();
-                        return;
-                        //document.getElementById("button").innerHTML = "Restart";
-                    }
+                            studentDisplayed[randomNumber] = true;
+                            document.getElementById("test").innerHTML = studentNames[randomNumber];
+                            count--;
+                            document.getElementById("button").value = count;
+                            console.log(studentNames[randomNumber])
+                            console.log(count)
+                            if (count == 0) {
+                                generateData(event);
+                                return;
+                             }
                 }
             </script>
         </body>
