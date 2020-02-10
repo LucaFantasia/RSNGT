@@ -1,6 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
+            <title>RSNGT</title>
             <style>
                 .background{
                     background-color:rgb(185, 185, 185);
@@ -34,58 +35,70 @@
         </head>
         <body id="body" class="background">
             <table>
-                <tr>
-                    <td><h1 style="font-family:monospace" class="color1">Random</h1></td>
-                    <td> </td>
-                    <td><h1 style="font-family:monospace" class="color2">Student</h1></td>
-                    <td> </td>
-                    <td><h1 style="font-family:monospace" class="color3">Name</h1></td>
-                    <td> </td>
-                    <td><h1 style="font-family:monospace" class="color1">Generator</h1></td>
-                </tr>
-            </table>
-            <table>
                 <td>
                     <table>
-                        <tr>
-                        <td><select style="background-color: rgb(96, 189, 172);" class="question" style="height:23px" id = "myList">
-                            <option value = "10"selected>10</option>
-                            <option value = "9">9</option>
-                            </select>
-                        </tr>
-                        <tr>
-                        <td><input style="background-color: rgb(246, 191, 53);" class="question" type="button" value="?"></td> 
-                        </tr>
-                        <tr>
-                            <td><input type="radio" id="radio"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Absent</b></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Top</b></td>
-                        </tr>
-                        <tr>
-                            <td><input style="background-color:rgb(96, 189, 172);" class="question" type="button" id=">>" value=">>"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input id="correct" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/tick.jpg">
-                                <input  id="wrong" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/x.png">
-                            </td>
-                </table>
+                        <td>
+                            <tr>
+                                <td>
+                                    <select style="background-color: rgb(96, 189, 172);" class="question" style="height:23px" id = "myList">
+                                        <option value = "10"selected>10</option>
+                                        <option value = "9">9</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" id="radio"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Absent</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="correct" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/tick.jpg">
+                                    <input  id="wrong" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/x.png">
+                                </td>
+                            </tr>
+                        </td>
+                    </table>
                 </td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
                     <table>
                         <tr>
-                            <td style="color:rgb(185, 185, 185)">...</td>
+                            <h1 style="font-family:monospace" id="test">Ready Playerone</h1>
+                        </tr>
+                        <tr>
+                            <input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1" class="search" id="button" onclick="setNames()">
                         </tr>
                     </table>
                 </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>                 
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
                     <table>
                         <tr>
-                            <td><h1 style="font-family:monospace" id="test">Ready Playerone</h1></td>
+                            <div style="font-family:monospace" class="color1">Random</div>
                         </tr>
                         <tr>
-                            <td><input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1" class="search" id="button" onclick="setNames()"></td>
+                            <div style="font-family:monospace" class="color2">Student</div>
+                        </tr>
+                        <tr>
+                            <div style="font-family:monospace" class="color3">Name</div>
+                        </tr>
+                        <tr>
+                            <div style="font-family:monospace" class="color1">Generator</div>
                         </tr>
                     </table>
                 </td>
@@ -203,7 +216,7 @@
                                 }
                                 return;
                              }
-                }
+                }      
             </script>
         </body>
     </html>
