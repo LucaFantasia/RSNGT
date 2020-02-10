@@ -31,6 +31,14 @@
                     width:31.8px;
                     height:31.8px;
                 }
+                .button1{
+                    width:68px;
+                    height:15px;
+                    font-size:10px;
+                    font-family:monospace;
+                    color: rgb(0, 96, 152);
+                }
+            
             </style>
         </head>
         <body id="body" class="background">
@@ -55,6 +63,11 @@
                                 <td>
                                     <input id="correct" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/tick.jpg">
                                     <input  id="wrong" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/x.png">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" class="button1" id="button1" value="report" onclick = "report()">
                                 </td>
                             </tr>
                         </td>
@@ -113,6 +126,7 @@
                 function generateData(event) {
                     if (menu.value == '10') {
                         setArrays10();
+                        
                     } else if (menu.value == '9') {
                         setArrays9();
                     }
@@ -148,6 +162,25 @@
                         absentCount++;
                     }
                 }
+                var reportCorrect = [];
+                var reportWrong = [];
+                if(menu.value == '10') {
+                    reportCorrect = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                    reportWrong = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                } if(menu.value == '9') {
+                    reportCorrect = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                    reportWrong = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                }
+                menu.addEventListener("change", ticks);
+                function ticks(event) {
+                    if(menu.value == '10') {
+                        reportCorrect = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                        reportWrong = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                    } if(menu.value == '9') {
+                        reportCorrect = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                        reportWrong = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                    }
+                }
                 document.getElementById("correct").addEventListener("click", correct);
                 function correct(event) {
                     var  green = "#00ff00";
@@ -156,8 +189,8 @@
                     function right() {
                         document.body.style.backgroundColor = "rgb(185, 185, 185)";
                     }
-                    console.log(studentNames[randomNumber] + " is correct")
                     document.getElementById("correct").checked = false;
+                    reportCorrect[randomNumber]++;
                 }
                 document.getElementById("wrong").addEventListener("click", wrong);
                 function wrong(event) {
@@ -167,8 +200,13 @@
                     function incorrect() {
                         document.body.style.backgroundColor = "rgb(185, 185, 185)";
                     }
-                    console.log(studentNames[randomNumber] + " is wrong")
                     document.getElementById("wrong").checked = false;
+                    reportWrong[randomNumber]++;
+                }
+                function report() {
+                    for(i = 0; i < studentNames.length; i++) {
+                        console.log(studentNames[i] + " got " + reportCorrect[i] + " correct and " + reportWrong[i] + " wrong")
+                    } 
                 }
                 var count = 0 ;
                 document.getElementById("button").value = count;
@@ -203,20 +241,20 @@
                     do {
                          randomNumber = Math.floor(Math.random() * studentNames.length);
                     } while (studentDisplayed[randomNumber] == true || absentAll[randomNumber] == true);
-                            studentDisplayed[randomNumber] = true;
-                            document.getElementById("test").innerHTML = studentNames[randomNumber];
-                            count--;
-                            document.getElementById("button").value = count;
-                            if (count == 0) {
-                                generateData(event);
-                                if(skip == true) {
-                                    for(a = 0; a < absentCount; a++) {
-                                        count--;
-                                    }
+                        studentDisplayed[randomNumber] = true;
+                        document.getElementById("test").innerHTML = studentNames[randomNumber];
+                        count--;
+                        document.getElementById("button").value = count;
+                        if (count == 0) {
+                            generateData(event);
+                            if(skip == true) {
+                                for(a = 0; a < absentCount; a++) {
+                                    count--;
                                 }
-                                return;
-                             }
-                }      
+                            }
+                            return;
+                        }
+                }     
             </script>
         </body>
     </html>
