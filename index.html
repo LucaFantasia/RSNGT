@@ -38,7 +38,6 @@
                     font-family:monospace;
                     color: rgb(0, 96, 152);
                 }
-            
             </style>
         </head>
         <body id="body" class="background">
@@ -67,7 +66,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="button" class="button1" id="button1" value="report" onclick = "report()">
+                                    <input type="button" class="button1" id="button1" value="report">
                                 </td>
                             </tr>
                         </td>
@@ -82,7 +81,7 @@
                             <h1 style="font-family:monospace" id="test">Ready Playerone</h1>
                         </tr>
                         <tr>
-                            <input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1" class="search" id="button" onclick="setNames()">
+                            <input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1" class="search" id="button" onclick="setNames(); table()">
                         </tr>
                     </table>
                 </td>
@@ -116,6 +115,163 @@
                     </table>
                 </td>
             </table>
+            <table>
+                <tr><h1></h1></tr>
+            </table>
+            <table>
+                <tr>
+                    <th width="75px">Student</th>
+                    <th width="75px">Correct</th>
+                    <th width="75px">Wrong</th>
+                    <th width="75px">Absent</th>
+                </tr>
+            </table>
+            <table id="tableDisplay">
+                <tr>
+                    <td width="75px"></td>
+                    <td width="75px"></td>
+                    <td width="75px"></td>
+                    <td width="75px"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
             <script type="text/javascript">
                 var studentNames = [];
                 var studentDisplayed = [];
@@ -134,34 +290,67 @@
                 var absentAll = [];
                 var skip = false;
                 var absentCount = 0;
+                if(menu.value == '9') {
+                        absentAll = ["No","No","No","No","No","No","No","No","No","No","No","No","No",
+                        "No","No","No","No","No","No","No","No","No","No","No"];
+                    } 
+                    if(menu.value == '10') {
+                        absentAll = ["No","No","No","No","No","No","No","No","No","No","No","No","No",
+                        "No","No","No","No","No","No","No","No"];
+                }
+                menu.addEventListener("change", function () {
+                    if(menu.value == '9') {
+                        absentAll = ["No","No","No","No","No","No","No","No","No","No","No","No","No",
+                        "No","No","No","No","No","No","No","No","No","No","No"];
+                    } 
+                    if(menu.value == '10') {
+                        absentAll = ["No","No","No","No","No","No","No","No","No","No","No","No","No",
+                        "No","No","No","No","No","No","No","No"];
+                }
+                });
                 document.getElementById("radio").addEventListener("click", absent) 
                 function absent(event) {
                         var red_colour = "#ff0000";
                         var readyPlayerOne = document.getElementById("test");
                         readyPlayerOne.style.color = red_colour;
+                        readyPlayerOne.innerHTML = studentNames[randomNumber] + " (Absent)";
                         setTimeout(back, 100);
                         function back() {
                             readyPlayerOne.style.color = "#000000";
                         }
                     if(menu.value == '10') {
-                        absentAll = [false,false,false,false,false,false,false,false,false,false,
-                    false,false,false,false,false,false,false,false,false,false,false];
-                        absentAll[randomNumber] = true;
+                        absentAll[randomNumber] = "Yes";
                         console.log(studentNames[randomNumber] + " is absent");
                         document.getElementById("radio").checked = false;
                         skip = true;
                         absentCount++;
                     } if(menu.value == '9') {
-                        absentAll = [false,false,false,false,false,false,false,false,
-                 false,false,false,false,false,
-                 false,false,false,false,false,false,false,false,false,false,false];
-                        absentAll[randomNumber] = true;
+                        absentAll[randomNumber] = "Yes";
                         console.log(studentNames[randomNumber] + " is absent");
                         document.getElementById("radio").checked = false;
                         skip = true;
                         absentCount++;
                     }
                 }
+                var tableDisplay = document.getElementById("tableDisplay");
+                function table() {
+                    for(s = 0; s < studentNames.length; s++) {
+                        tableDisplay.rows[s].cells[0].innerHTML = studentNames[s];
+                        tableDisplay.rows[s].cells[1].innerHTML = reportCorrect[s];
+                        tableDisplay.rows[s].cells[2].innerHTML = reportWrong[s];
+                        tableDisplay.rows[s].cells[3].innerHTML = absentAll[s];
+                    }
+                }
+                document.getElementById("correct").addEventListener("click", function() {
+                    tableDisplay.rows[randomNumber].cells[1].innerHTML = reportCorrect[randomNumber] + 1;
+
+                });
+                document.getElementById("wrong").addEventListener("click", function() {
+                    tableDisplay.rows[randomNumber].cells[2].innerHTML = reportWrong[randomNumber] + 1;
+                });
+                document.getElementById("radio").addEventListener("click", function() {
+                    tableDisplay.rows[randomNumber].cells[3].innerHTML = absentAll[randomNumber];
+                })
                 var reportCorrect = [];
                 var reportWrong = [];
                 if(menu.value == '10') {
@@ -203,11 +392,6 @@
                     document.getElementById("wrong").checked = false;
                     reportWrong[randomNumber]++;
                 }
-                function report() {
-                    for(i = 0; i < studentNames.length; i++) {
-                        console.log(studentNames[i] + " got " + reportCorrect[i] + " correct and " + reportWrong[i] + " wrong")
-                    } 
-                }
                 var count = 0 ;
                 document.getElementById("button").value = count;
                 generateData(event);
@@ -240,7 +424,7 @@
                 function setNames() {
                     do {
                          randomNumber = Math.floor(Math.random() * studentNames.length);
-                    } while (studentDisplayed[randomNumber] == true || absentAll[randomNumber] == true);
+                    } while (studentDisplayed[randomNumber] == true || absentAll[randomNumber] == "Yes");
                         studentDisplayed[randomNumber] = true;
                         document.getElementById("test").innerHTML = studentNames[randomNumber];
                         count--;
