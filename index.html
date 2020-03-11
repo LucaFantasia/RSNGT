@@ -1,158 +1,86 @@
 <html>
-        <head>
-            <title>Random Sampling</title>
-            <link href="RSNG EDIT.css" rel="stylesheet" type="text/css">
-        </head>
-        <body id="body" class="background">
+
+<head>
+    <title>RSNGT</title>
+    <link href="RSNG EDIT.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="body" class="background">
+    <table>
+        <td>
             <table>
+        <td>
+            <tr>
                 <td>
-                    <table>
-                        <td>
-                            <tr>
-                                <td>
-                                    <select style="background-color: rgb(96, 189, 172);" class="question" style="height:23px" id = "myList">
-                                        <option value = "10"selected>10</option>
-                                        <option value = "9">9</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="radio" id="radio"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Absent</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input id="correct" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/tick.jpg">
-                                    <input  id="wrong" type="image" class="image" src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/x.png">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="button" class="button1" id="button1" value="report">
-                                </td>
-                            </tr>
-                        </td>
-                    </table>
+                    <select style="background-color: rgb(96, 189, 172);" class="question" style="height:23px"
+                        id="myList">
+                        <option value="10" selected>10</option>
+                        <option value="9">9</option>
+                    </select>
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
+            </tr>
+            <tr>
                 <td>
-                    <table>
-                        <tr>
-                            <h1 style="font-family:monospace" id="test">Random Sampling</h1>
-                        </tr>
-                        <tr>
-                            <input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1" class="search" id="button" onclick="setNames(); table()">
-                        </tr>
-                    </table>
+                    <input type="radio" id="radio"><b style="color: rgb(0, 96, 152);
+                                     font-family:monospace,bold">Absent</b>
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>                 
-                <td></td>
-                <td></td>
-                <td></td>
+            </tr>
+            <tr>
                 <td>
-                    <table>
-                        <tr>
-                            <img src="2020-03-09 21_34_09-Window.png" alt="RSNG logo" width="100px" height="75px">
-                        </tr>
-                    </table>
+                    <input id="correct" type="image" class="image" src="tick.jpg">
+                    <input id="wrong" type="image" class="image" src="xpng.png">
                 </td>
-            </table>
-            <table>
-                <tr><h1></h1></tr>
-            </table>
-            <table class="tables">
-                <tr>
-                    <td width="75px" class="tables"><h4>Name</h4></td>
-                    <td width="75px" class="tables"><h4>Correct</h4></td>
-                    <td width="75px" class="tables"><h4>Wrong</h4></td>
-                    <td width="75px" class="tables"><h4>Absent</h4></td>
-                </tr>
-            </table>
-            <table id="tableDisplay" class="tables">
-                <tr>
-                    <td width="75px" class="tables"></td><td width="75px" class="tables"></td><td width="75px" class="tables"></td><td width="75px" class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-                <tr>
-                    <td class="tables"></td><td class="tables"></td><td class="tables"></td><td class="tables"></td>
-                </tr>
-            <script type="text/javascript" src="RSNG EDIT.js"></script>
-        </body>
-    </html>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" class="button1" id="button1" value="report">
+                </td>
+            </tr>
+        </td>
+    </table>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <table>
+            <tr>
+                <h1 style="font-family:monospace" id="test">Random Sampling</h1>
+            </tr>
+            <tr>
+                <input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1"
+                    class="search" id="button" onclick="setNames(); createTable()">
+            </tr>
+        </table>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <table>
+            <tr>
+                <img src="2020-03-09 21_34_09-Window.png" alt="RSNG logo" width="100px" height="75px">
+            </tr>
+        </table>
+    </td>
+    </table>
+    <table>
+        <tr>
+            <h1></h1>
+        </tr>
+    </table>
+    <div id="mainTable"></div>
+    <script type="text/javascript" src="RSNG EDIT.js"></script>
+</body>
+
+</html>

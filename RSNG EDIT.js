@@ -57,25 +57,44 @@ function absent(event) {
         absentCount++;
     }
 }
-var tableDisplay = document.getElementById("tableDisplay");
-function table() {
-    for (s = 0; s < studentNames.length; s++) {
-        tableDisplay.rows[s].cells[0].innerHTML = studentNames[s];
-        tableDisplay.rows[s].cells[1].innerHTML = reportCorrect[s];
-        tableDisplay.rows[s].cells[2].innerHTML = reportWrong[s];
-        tableDisplay.rows[s].cells[3].innerHTML = absentAll[s];
+function createTable() {
+    var table = "<table id='tableDisplay' class='tables'>";
+    table = table + "<tr>" + "<td width='75px' class='tables'>" + "<h4>Name</h4>" + "</td>" +
+     "<td width='75px' class='tables'>" +
+   "<h4>Correct</h4>" + "</td>" + "<td width='75px' class='tables'>" + "<h4>Wrong</h4>" + "</td>" + 
+   "<td width='75px' class='tables'>" + 
+   "<h4>Absent</h4>" +"</td>" + "</tr>";
+    for(i = 0; i < studentNames.length; i++) {
+        table = table + "<tr>";
+        table = table + "<td width='75px' class='tables'>";
+        table = table + studentNames[i];
+        table = table + "</td>";
+        table = table + "<td width='75px' class='tables'>";
+        table = table + reportCorrect[i];
+        table = table + "</td>";
+        table = table + "<td width='75px' class='tables'>";
+        table = table + reportWrong[i];
+        table = table + "</td>";
+        table = table + "<td width='75px' class='tables'>";
+        table = table + absentAll[i];
+        table = table + "</td>";
+        table = table + "</tr>";
     }
+    table = table + "</table>";
+    document.getElementById("mainTable").innerHTML = table;
 }
-document.getElementById("correct").addEventListener("click", function () {
-    tableDisplay.rows[randomNumber].cells[1].innerHTML = reportCorrect[randomNumber] + 1;
-
+document.getElementById("correct").addEventListener("click", function() {
+    var mainTable = document.getElementById("tableDisplay");
+    mainTable.rows[randomNumber].cells[1].innerHTML = reportCorrect[randomNumber] + 1;
 });
-document.getElementById("wrong").addEventListener("click", function () {
-    tableDisplay.rows[randomNumber].cells[2].innerHTML = reportWrong[randomNumber] + 1;
+document.getElementById("wrong").addEventListener("click", function() {
+    var mainTable = document.getElementById("tableDisplay");
+    mainTable.rows[randomNumber].cells[2].innerHTML = reportWrong[randomNumber] + 1;
 });
-document.getElementById("radio").addEventListener("click", function () {
-    tableDisplay.rows[randomNumber].cells[3].innerHTML = absentAll[randomNumber];
-})
+document.getElementById("radio").addEventListener("click", function() {
+    var mainTable = document.getElementById("tableDisplay");
+    mainTable.rows[randomNumber].cells[3].innerHTML = absentAll[randomNumber];
+});
 var reportCorrect = [];
 var reportWrong = [];
 if (menu.value == '10') {
@@ -121,18 +140,18 @@ var count = 0;
 document.getElementById("button").value = count;
 generateData(event);
 function setArrays10() {
-    studentNames = ["Adriana","Afonso","Allan","Carolina","Cecilia","Dinis","Holly","JJ",
-    "JM","Laura","Luca","Luna","Maria","Miguel","Myro","Sandro",
-    "Sebastian","Sofia F","Sofia G","Tian","Tilly"];
+    studentNames = ["Adriana", "Afonso", "Allan", "Carolina", "Cecilia", "Dinis", "Holly", "JJ",
+        "JM", "Laura", "Luca", "Luna", "Maria", "Miguel", "Myro", "Sandro",
+        "Sebastian", "Sofia F", "Sofia G", "Tian", "Tilly"];
     studentDisplayed = [false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false, false];
     count = studentNames.length;
     document.getElementById("button").value = count;
 }
 function setArrays9() {
-    studentNames = ["Adam","Amelia","Anais","Beatriz","Bernado","Catarina","Daniela","Elliot","Emily","Guilherme",
-    "Kiana","Lauren","Lena","Luca","Luisa","Maria","Mariana","Pedro","Sam","Sarah","Sofia A","Sofia C","Sofia M",
-    "Tarushi"];
+    studentNames = ["Adam", "Amelia", "Anais", "Beatriz", "Bernado", "Catarina", "Daniela", "Elliot", "Emily", "Guilherme",
+        "Kiana", "Lauren", "Lena", "Luca", "Luisa", "Maria", "Mariana", "Pedro", "Sam", "Sarah", "Sofia A", "Sofia C", "Sofia M",
+        "Tarushi"];
     studentDisplayed = [false, false, false, false, false, false, false, false,
         false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false, false];
