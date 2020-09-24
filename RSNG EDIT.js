@@ -4,35 +4,35 @@ var randomNumber;
 var x;
 var menu = document.getElementById("myList");
 menu.addEventListener("change", generateData);
-function generateData(event) {
-    if (menu.value == '10') {
-        setArrays10();
+ function generateData(event) {
+    if (menu.value == '11') {
+        setArrays11();
 
-    } else if (menu.value == '9') {
-        setArrays9();
+    } else if (menu.value == '10') {
+        setArrays10();
     }
 }
 var absentAll = [];
 var skip = false;
 var absentCount = 0;
-if (menu.value == '9') {
-    absentAll = ["No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No",
-        "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No"];
-}
-if (menu.value == '10') {
+ if (menu.value == '10') {
     absentAll = ["No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No",
         "No", "No", "No", "No", "No", "No", "No", "No"];
 }
+if (menu.value == '11') {
+    absentAll = ["No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No",
+        "No", "No", "No", "No", "No"];
+}
 menu.addEventListener("change", function () {
-    if (menu.value == '9') {
-        absentAll = ["No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No",
-            "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No"];
-    }
     if (menu.value == '10') {
         absentAll = ["No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No",
             "No", "No", "No", "No", "No", "No", "No", "No"];
     }
-});
+    if (menu.value == '11') {
+        absentAll = ["No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No",
+            "No", "No", "No", "No", "No"];
+    }
+}); 
 document.getElementById("radio").addEventListener("click", absent)
 function absent(event) {
     var red_colour = "#ff0000";
@@ -43,20 +43,20 @@ function absent(event) {
     function back() {
         readyPlayerOne.style.color = "#000000";
     }
-    if (menu.value == '10') {
+    if (menu.value == '11') {
         absentAll[randomNumber] = "Yes";
         console.log(studentNames[randomNumber] + " is absent");
         document.getElementById("radio").checked = false;
         skip = true;
         absentCount++;
-    } if (menu.value == '9') {
+    } if (menu.value == '10') {
         absentAll[randomNumber] = "Yes";
         console.log(studentNames[randomNumber] + " is absent");
         document.getElementById("radio").checked = false;
         skip = true;
         absentCount++;
     }
-}
+} 
 function createTable() {
     var table = "<table id='tableDisplay' class='tables'>";
     table = table + "<tr>" + "<td width='75px' class='tables'>" + "<h4>Name</h4>" + "</td>" +
@@ -97,21 +97,21 @@ document.getElementById("radio").addEventListener("click", function() {
 });
 var reportCorrect = [];
 var reportWrong = [];
-if (menu.value == '10') {
+  if (menu.value == '11') {
+    reportCorrect = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    reportWrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+} if (menu.value == '10') {
     reportCorrect = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     reportWrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-} if (menu.value == '9') {
-    reportCorrect = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    reportWrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 }
 menu.addEventListener("change", ticks);
 function ticks(event) {
-    if (menu.value == '10') {
+    if (menu.value == '11') {
+        reportCorrect = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        reportWrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,];
+    } if (menu.value == '10') {
         reportCorrect = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         reportWrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    } if (menu.value == '9') {
-        reportCorrect = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        reportWrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
 }
 document.getElementById("correct").addEventListener("click", correct);
@@ -139,24 +139,24 @@ function wrong(event) {
 var count = 0;
 document.getElementById("button").value = count;
 generateData(event);
-function setArrays10() {
-    studentNames = ["Adriana", "Afonso", "Allan", "Carolina", "Cecilia", "Dinis", "Holly", "JJ",
+function setArrays11() {
+    studentNames = ["Adriana", "Allan", "Carolina", "Cecilia", "Dinis", "Holly", "JJ",
         "JM", "Laura", "Luca", "Luna", "Maria", "Miguel", "Myro", "Sandro",
-        "Sebastian", "Sofia F", "Sofia G", "Tian", "Tilly"];
+        "Sebastian", "Sofia F", "Tilly"];
     studentDisplayed = [false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false, false];
+        false, false, false, false, false, false, false, false];
     count = studentNames.length;
-    document.getElementById("button").value = count;
+    document.getElementById("button").value = count - absentCount;
 }
-function setArrays9() {
-    studentNames = ["Adam", "Amelia", "Anais", "Beatriz", "Bernado", "Catarina", "Daniela", "Elliot", "Emily", "Guilherme",
-        "Kiana", "Lauren", "Lena", "Luca", "Luisa", "Maria", "Mariana", "Pedro", "Sam", "Sarah", "Sofia A", "Sofia C", "Sofia M",
+function setArrays10() {
+    studentNames = ["Adam", "Anais", "Beatriz", "Bernado", "Catarina", "Daniela", "Elliot", "Emily", "Guilherme",
+        "Kiana", "Lauren", "Lena", "Luca", "Luisa", "Mariana", "Micheal", "Sam", "Sofia A", "Sofia C", "Sofia M",
         "Tarushi"];
     studentDisplayed = [false, false, false, false, false, false, false, false,
         false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false, false];
+        false, false, false, false, false, false, false, false];
     count = studentNames.length;
-    document.getElementById("button").value = count;
+    document.getElementById("button").value = count - absentCount;
 }
 function setNames() {
     do {
